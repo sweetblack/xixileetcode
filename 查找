@@ -1,0 +1,28 @@
+1 二分查找
+#不重复查找
+def bi_search(L,target):
+    left,right = 0,len(L)-1
+    while(left<=right):
+        mid = left+(right-left)//2
+        if L[mid]==target:return mid
+        elif L[mid]<target:left = mid + 1
+        else:right = mid - 1
+    return -1
+#左边界 返回左，优先移动右
+def bi_search_left(L,target):
+    left,right = 0,len(L)-1
+    while(left<=right):
+        mid = left+(right-left)//2
+        if L[mid]<target:left = mid + 1
+        else:right = mid - 1
+    if left>=len(L) or L[left]!=target:return -1
+    return left
+#右边界
+def bi_search_right(L,target):
+    left,right = 0,len(L)-1
+    while(left<=right):
+        mid = left+(right-left)//2
+        if L[mid]<=target:left = mid + 1
+        else:right = mid - 1
+    if L[right]<0 or L[right]!=target:return -1
+    return right
