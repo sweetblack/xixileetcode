@@ -26,3 +26,12 @@ def bi_search_right(L,target):
         else:right = mid - 1
     if L[right]<0 or L[right]!=target:return -1
     return right
+#找插入位置
+def searchInsert(self, nums: List[int], target: int) -> int:
+        left,right = 0,len(nums)-1
+        while(left<=right):
+            mid = (left+right)//2
+            if nums[mid] == target:return mid
+            if nums[mid]<target:left = mid + 1
+            else: right = mid - 1
+        return left
